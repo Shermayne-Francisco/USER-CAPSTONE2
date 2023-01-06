@@ -5,23 +5,22 @@
 </ion-header> -->
 
 <ion-content class="auth-form">
-  <div class="flex-center">
-    <ion-card class="home">
-      <img src="./assets/icon/aclogo01.png"/>
-       
-        <ion-grid>
-          <ion-row>
-            <ion-col align-self-center>
-              <ion-button [routerLink]="['/signup']" expand="block" color="primary">Sign Up</ion-button>
-
-              <span class="divider line one-line">or</span>
-
-              <span class="already">Already have an account?</span>
-
-              <ion-button [routerLink]="['/login']" expand="block" color="danger">Login</ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-    </ion-card>
+  <div class="flex-center">  
+    <img src="./assets/icon/aclogo01.png" width="90%"/>
   </div>
+
+  <div class="center">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button [routerLink]="['/signup']" expand="block" color="secondary">Sign Up</ion-button>
+
+          <span class="divider line one-line">or</span>
+          <span class="already">Already have an account?</span>
+
+          <ion-button [routerLink]="['/login']" expand="block" color="warning" class="login">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>    
 </ion-content>
