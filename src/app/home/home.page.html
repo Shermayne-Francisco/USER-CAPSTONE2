@@ -1,40 +1,27 @@
-<!-- <ion-header [translucent]="true">
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <img src="./assets/icon/aclogo01.png"/>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content> -->
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Form
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content class="auth-form">
-  <ion-grid>
-    <ion-row>
-      <ion-col align-self-center>
-        <ion-button [routerLink]="['/registration']" expand="block" color="primary">Register</ion-button>
-        <span class="divider line one-line">or</span>
-        <span class="already">Already a user?</span>
-        <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <div class="flex-center">
+    <ion-card class="home">
+      <img src="./assets/icon/aclogo01.png"/>
+       
+        <ion-grid>
+          <ion-row>
+            <ion-col align-self-center>
+              <ion-button [routerLink]="['/signup']" expand="block" color="primary">Sign Up</ion-button>
+
+              <span class="divider line one-line">or</span>
+
+              <span class="already">Already have an account?</span>
+
+              <ion-button [routerLink]="['/login']" expand="block" color="danger">Login</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-card>
+  </div>
 </ion-content>
