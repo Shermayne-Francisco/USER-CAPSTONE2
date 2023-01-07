@@ -29,7 +29,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 ion-content {
@@ -38,6 +37,6 @@ ion-content {
 }
   
 ion-card {
-    --overflow: hidden;
+    // --overflow: hidden;
     background-color: #F3E3CD;
 }

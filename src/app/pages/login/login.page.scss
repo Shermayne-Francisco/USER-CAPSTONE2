@@ -13,7 +13,6 @@ ion-toolbar {
 ion-card-content {
     display: block;
     justify-content: center;
-    // padding-top: -2px;
 }
 
 ion-item {
@@ -23,7 +22,6 @@ ion-item {
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
 }
-
 
 .divider {
     display: flex;
@@ -38,13 +36,6 @@ ion-item {
 .line {
     align-items: center;
     margin: 1em -1em;
-    --background: #93e9be;
-}
-  
-ion-grid,
-ion-row {
-    height: 100%;
-    justify-content: center;
 }
   
 .login-btn {

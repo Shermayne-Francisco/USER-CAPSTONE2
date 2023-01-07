@@ -3,36 +3,124 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Register</ion-title>
+    <ion-title>Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <form>
-    <ion-item lines="full">
-      <ion-label position="floating">First name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+  <div class="flex-center">
+    <img src="./assets/icon/aclogo01.png" width="80%"/>
+  </div>
+ 
+  <div class="details"> 
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Client's Information</ion-card-subtitle>
+      </ion-card-header>
+   
+      <ion-item lines="none">
+        <ion-input placeholder="Full Name" type="text" color="medium" required></ion-input>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-input placeholder="Email" type="email" color="medium" required></ion-input>
+      </ion-item>       
 
-    <ion-item lines="full">
-      <ion-label position="floating">Last name</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+      <ion-item lines="none">
+        <ion-input placeholder="Contact Number" type="tel" color="medium" required></ion-input>
+      </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
+      <ion-item lines="none">
+        <ion-input placeholder="Address" type="text" color="medium" required></ion-input>
+      </ion-item>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
+      <ion-item lines="none">
+        <ion-input placeholder="Password" type="password" color="medium" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input placeholder="Confirm Password" type="password" color="medium" required></ion-input>
+      </ion-item>
+  </ion-card>   
+  </div>
+  <!-- <div class="scroll">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Client's Information</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-input placeholder="Full Name" type="text" color="medium" required></ion-input>
+        </ion-item>
+        
+        <ion-item lines="none">
+          <ion-input placeholder="Email" type="email" color="medium" required></ion-input>
+        </ion-item>       
+
+        <ion-item lines="none">
+          <ion-input placeholder="Contact Number" type="tel" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input placeholder="Address" type="text" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input placeholder="Password" type="password" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input placeholder="Confirm Password" type="password" color="medium" required></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div class="scroll">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Pet's Information</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item lines="none" >
+          <ion-input placeholder="Name" type="text" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" >
+          <ion-input placeholder="Color/Markings" type="text" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" >
+          <ion-input placeholder="Breed" type="text" color="medium" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="medium">Birthdate</ion-label>
+          <ion-input value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
+          <ion-popover trigger="date" size="small">
+            <ng-template>
+              <ion-datetime presentation="date" [(ngModel)]="date"></ion-datetime>
+            </ng-template>
+          </ion-popover>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label color="medium" required>Gender</ion-label>
+          <ion-select interface="popover">
+            <ion-select-option value="Female">Female</ion-select-option>
+            <ion-select-option value="Male">Male</ion-select-option>            
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </div> -->
 
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="danger" expand="block">Register</ion-button>
+        <span class="divider line"><ion-button type="submit" class="signup-btn">Sign Up</ion-button></span>
       </ion-col>
     </ion-row>
-  </form>
+
 </ion-content>

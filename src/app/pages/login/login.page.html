@@ -9,29 +9,25 @@
 
 <ion-content>
   <div class="flex-center">
-    <!-- <ion-card> -->
-      <img src="./assets/icon/aclogo01.png" width="80%"/>
+    <img src="./assets/icon/aclogo01.png" width="80%"/>
   </div>
 
   <div class="center">
     <ion-card-content>
       <ion-item lines="none">
-        <ion-input placeholder="Username or Email" type="text" color="medium"></ion-input>
+        <ion-input placeholder="Email" type="email" color="medium"></ion-input>
       </ion-item>
   
       <ion-item lines="none">
         <ion-input placeholder="Password" type="password" color="medium" required></ion-input>
       </ion-item>
 
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <span class="divider line"><ion-button type="submit" class="login-btn">Login</ion-button></span>
-            <span class="forgot"><a [routerLink]="['/forgotpw']" class="small-text">Forgot Password?</a></span>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-row>
+        <ion-col>
+          <span class="divider line"><ion-button type="submit" class="login-btn">Login</ion-button></span>
+          <span class="forgot"><a [routerLink]="['/forgotpw']" class="small-text">Forgot Password?</a></span>
+        </ion-col>
+      </ion-row>
     </ion-card-content>
-    <!-- </ion-card> -->
   </div>
 </ion-content>
