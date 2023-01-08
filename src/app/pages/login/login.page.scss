@@ -1,18 +1,21 @@
+ion-content {
+    --overflow: hidden;
+}
+
 ion-toolbar {
     --background: #F3E3CD;
     --min-height: 5px;
     --padding-top: 10px;
     --padding-bottom: 5px;
+    
+    ion-title {
+        font-size: small;
+    }
 }
 
 .flex-center {
     height: 30%;
     margin-bottom: -20px;
-}
-
-ion-card-content {
-    display: block;
-    justify-content: center;
 }
 
 ion-item {
@@ -40,7 +43,7 @@ ion-item {
   
 .login-btn {
     --background: #D1C770;
-    --background-hover: #cbc490;
+    --background-hover: #b9b163;
     --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
 }
 

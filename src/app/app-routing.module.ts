@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'forgotpw',
     loadChildren: () => import('./pages/forgotpw/forgotpw.module').then( m => m.ForgotpwPageModule)
   },
+  {
+    path: 'userprofile',
+    loadChildren: () => import('./pages/userprofile/userprofile.module').then( m => m.UserprofilePageModule)
+  },
 
 ];
 
