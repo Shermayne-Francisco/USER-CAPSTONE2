@@ -1,9 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>userprofile</ion-title>
+    <ion-icon slot="end" class="logout" [routerLink]="['/login']" name="log-out-outline"></ion-icon> 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="flex-center">
+    <img src="./assets/icon/profile.jpg" width="80%"/>
+  </div>
 
-</ion-content>
+  <ion-card>
+    <div class="card-body">
+      <div class="user-meta ion-text-center">
+        <h3 class="playername">Roger Federer</h3>
+        <h5 class="country">Switzerland</h5>
+        <h6 class="ranking">Current ranking: <ion-chip>
+          <ion-label>2</ion-label>
+          </ion-chip>
+        </h6>
+      </div>
+      <ion-button expand="full" color="primary">http://rogerfederer.com</ion-button>
+      <ion-button expand="full" color="secondary">@RogerFederer on Twitter</ion-button>
+      <ion-button expand="full" color="secondary">View profile at ATP</ion-button>
+    </div>    
+  </ion-card>
+  
+  
+    <!-- <ion-content class="ion-padding">
+    
+
+     <div class="prof_name">
+        <h2>John Doe</h2>
+      </div>
+
+      <div class="edit_btn">
+        <ion-button class="edit_prof" color="clear">Edit Profile</ion-button>
+      </div>
+
+      <div class="pet_lists">
+        <ion-list>
+          <ion-card class="pet">
+            <ion-item button detail="true" [routerLink]="['/details']" lines="none" color="light">
+              <ion-label>Akio</ion-label>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="pet">
+            <ion-item button detail="true" [routerLink]="['/details']" lines="none" color="light">
+              <ion-label>Nazi</ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-list>
+      </div>
+
+      <div class="add_btn">
+        <ion-fab slot="fixed">
+          <ion-fab-button class="add">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </div>
+    </ion-content> -->
+  <!-- </div> -->
+</ion-content> 
+

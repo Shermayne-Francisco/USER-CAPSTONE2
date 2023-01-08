@@ -1,0 +1,22 @@
+ion-toolbar {
+    --background: #F3E3CD;
+    --min-height: 5px;
+    --padding-top: 10px;
+    --padding-bottom: 5px;
+    
+    .logout {
+        color: black;
+        font-size: 150%;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.flex-center {
+    // height: 30%;
+    margin-top: 20px;
+
+    img {
+        border-radius: 50%;
+    }
+}
