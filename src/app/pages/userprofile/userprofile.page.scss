@@ -4,6 +4,12 @@ ion-toolbar {
     --padding-top: 10px;
     --padding-bottom: 5px;
     
+    ion-title {
+        font-size: medium;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+
     .logout {
         color: black;
         font-size: 150%;
@@ -13,10 +19,105 @@ ion-toolbar {
 }
 
 .flex-center {
-    // height: 30%;
     margin-top: 20px;
 
     img {
         border-radius: 50%;
     }
 }
+
+.user-profile {
+    padding-top: 5px;
+
+    .user-name {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #144D2F;
+        margin-bottom: 25px;
+    }
+
+    .edit {
+        font-size: 25px;
+        color: #000000;
+        margin-bottom: 14px;
+    }
+}
+
+ion-segment {
+    --background: #F3E3CD;
+
+    ion-segment-button {
+        --indicator-color: #BF622A;
+    }
+      
+    /* Material Design styles */
+    ion-segment-button.md {
+    --color: #000000;
+    --color-checked: #BF622A;
+    --indicator-height: 2px;
+    // --height: 3px;
+    }
+    
+    /* iOS styles */
+    ion-segment-button.ios {
+    --color: #BF622A;
+    --color-checked: #F3E3CD;
+    --border-radius: 20px;
+    // --height: 10px;
+    }
+}
+
+ion-list {
+    --ion-item-background: transparent;
+
+    ion-item {
+        margin: 10px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border-radius: 10px;
+      }
+
+    ion-item:hover {
+        opacity: 95%;
+        box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    }
+
+    ion-label {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+}
+
+.add-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+  
+ion-fab-button {
+    --background: #b7f399;
+    --background-activated: #87d361;
+    --background-hover: #a3e681;
+    --border-radius: 15px;
+    --box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+    --color: black;
+}
+//   ion-fab-button {
+//     --background: #144D2F;
+//     --border-radius: 50px;
+//     --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+//     --color: #F4F4F4;
+//   }
+  
+//   ion-fab-button:hover {
+//     opacity: 80%;
+//     --box-shadow: 0px 2px 4px black;
+//   }
+// #144D2F - dark green
+// #BF622A - bronze/brown
+// #D1C770 - yellow gold
+// #F3E3CD - peach
+// #F4F4F4 - white
+// #000000 - black
