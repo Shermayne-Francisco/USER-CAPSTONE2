@@ -22,7 +22,16 @@ import { Component } from '@angular/core';
   styleUrls: ['userprofile.page.scss'],
 })
 export class UserprofilePage {
-  account = 'details';
+  private dateValue: any;
 
+  account = 'details';  
+  
   constructor() {}
+  get date(): any {
+    return this.dateValue;
+  }
+  set date(value: any) {
+    console.log({ value });
+    this.dateValue = value;
+  }
 }

@@ -34,9 +34,7 @@ ion-toolbar {
             font-family: 'Times New Roman', Times, serif;
             font-size: 14px;
             color: rgb(203, 203, 203);
-
         }
-
     }
 
     ion-card-subtitle {
@@ -58,7 +56,8 @@ ion-toolbar {
   
 .line {
     align-items: center;
-    margin-top: 2px;
+    margin-top: -5px;
+    margin-bottom: 25px;
 }
 
 .signup-btn {

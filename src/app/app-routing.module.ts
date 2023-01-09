@@ -22,13 +22,18 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
-  },  {
+  },
+  {
     path: 'forgotpw',
     loadChildren: () => import('./pages/forgotpw/forgotpw.module').then( m => m.ForgotpwPageModule)
   },
   {
     path: 'userprofile',
     loadChildren: () => import('./pages/userprofile/userprofile.module').then( m => m.UserprofilePageModule)
+  },
+  {
+    path: 'editprofile',
+    loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
   },
 
 ];

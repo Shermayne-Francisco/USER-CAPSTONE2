@@ -19,7 +19,7 @@ ion-toolbar {
 }
 
 .flex-center {
-    margin-top: 20px;
+    margin: 15px 0px 10px;
 
     img {
         border-radius: 50%;
@@ -27,8 +27,6 @@ ion-toolbar {
 }
 
 .user-profile {
-    padding-top: 5px;
-
     .user-name {
         font-size: 20px;
         font-weight: bold;
@@ -46,6 +44,7 @@ ion-toolbar {
 
 ion-segment {
     --background: #F3E3CD;
+    margin-bottom: 10px;
 
     ion-segment-button {
         --indicator-color: #BF622A;
@@ -56,7 +55,6 @@ ion-segment {
     --color: #000000;
     --color-checked: #BF622A;
     --indicator-height: 2px;
-    // --height: 3px;
     }
     
     /* iOS styles */
@@ -64,7 +62,20 @@ ion-segment {
     --color: #BF622A;
     --color-checked: #F3E3CD;
     --border-radius: 20px;
-    // --height: 10px;
+    }
+}
+
+.user-info {
+    ion-card.md {
+        margin-bottom: 10%;
+    }
+    ion-item {
+        --background: transparent;
+
+        ion-label {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
     }
 }
 
@@ -94,27 +105,71 @@ ion-list {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin: 15px 0px 10px;
 }
   
-ion-fab-button {
-    --background: #b7f399;
-    --background-activated: #87d361;
-    --background-hover: #a3e681;
+ion-button {
+    --background: #BF622A;
+    --background-hover: #eb752c;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
     --border-radius: 15px;
-    --box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
-    --color: black;
+    --color: #F4F4F4;
 }
-//   ion-fab-button {
-//     --background: #144D2F;
-//     --border-radius: 50px;
-//     --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-//     --color: #F4F4F4;
-//   }
   
-//   ion-fab-button:hover {
-//     opacity: 80%;
-//     --box-shadow: 0px 2px 4px black;
-//   }
+ion-button:hover {
+    opacity: 80%;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --color: #000000;
+}
+
+ion-modal.ios {
+    --height: 60%;
+    --width: 95%;
+    --border-radius: 15px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+ion-modal.md {
+    --height: 65%;
+    --width: 95%;
+    --border-radius: 15px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+    h6 {
+        margin-left: 10px;
+    }
+}
+
+ion-modal::part(backdrop) {
+    background: rgba(209, 213, 219);
+    opacity: 3;
+}
+
+ion-modal ion-toolbar {
+    --background: #144D2F;
+    --color: #F3E3CD;
+
+    ion-button {
+        --background: #F3E3CD;
+        --color: #000000;
+    }
+}
+
+.addpet-info {
+    ion-item {
+        ion-input {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+        }
+
+        ion-label {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            color: rgb(121, 121, 121);
+        }
+    }
+}
+
 // #144D2F - dark green
 // #BF622A - bronze/brown
 // #D1C770 - yellow gold

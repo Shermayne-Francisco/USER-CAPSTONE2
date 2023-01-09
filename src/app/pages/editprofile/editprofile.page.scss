@@ -1,0 +1,30 @@
+ion-toolbar {
+    --background: #F3E3CD;
+    --min-height: 5px;
+    --padding-top: 10px;
+    --padding-bottom: 5px;
+
+    .save {
+        color: black;
+        font-size: 150%;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.flex-center {
+    margin-top: 20px;
+
+    img {
+        border-radius: 50%;
+    }
+}
+
+.upload {
+    --background: #93e9be;
+    --background-hover: #9ce0be;
+    --background-activated: #88f4be;
+    --background-focused: #88f4be;
+  
+    --color: blue;
+}
