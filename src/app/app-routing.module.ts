@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'editprofile',
     loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+  },  {
+    path: 'petinfo',
+    loadChildren: () => import('./pages/petinfo/petinfo.module').then( m => m.PetinfoPageModule)
   },
+
 
 ];
 

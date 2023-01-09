@@ -21,10 +21,41 @@ ion-toolbar {
 }
 
 .upload {
-    --background: #93e9be;
-    --background-hover: #9ce0be;
-    --background-activated: #88f4be;
-    --background-focused: #88f4be;
-  
-    --color: blue;
+    --background: #BF622A;
+    --background-hover: #eb752c;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --border-radius: 15px;
+    --color: #F4F4F4;
+    --font-size: 10px;
 }
+
+.upload:hover {
+    opacity: 80%;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --color: #000000;
+}
+
+ion-card {
+    ion-item {
+        --background: #F4F4F4;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        margin: 5px;
+
+        h3 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        ion-input {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+        }
+    }
+}
+
+// #144D2F - dark green
+// #BF622A - bronze/brown
+// #D1C770 - yellow gold
+// #F3E3CD - peach
+// #F4F4F4 - white
+// #000000 - black
