@@ -25,6 +25,10 @@
       <ion-label>My Pets</ion-label>
       <ion-icon name="paw"></ion-icon>
     </ion-segment-button>
+    <ion-segment-button value="schedule">
+      <ion-label>My Schedule</ion-label>
+      <ion-icon name="time-outline"></ion-icon>
+    </ion-segment-button>
   </ion-segment>
   
 
@@ -113,9 +117,32 @@
               </ion-list> 
             </ion-content>
           </ng-template>
-        </ion-modal>
-        
+        </ion-modal>  
       </div>
     </ion-card>
+
+    <ion-card *ngSwitchCase="'schedule'">
+      <ion-item lines="full">
+        <ion-label>
+          <h3>Email</h3>
+          <p>user@gmail.com</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <h3>Contact Number</h3>
+          <p>09705759514</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label>
+          <h3>Address</h3>
+          <p>1128 Calapacuan, Subic, Zambales</p>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
   </div>
 </ion-content>

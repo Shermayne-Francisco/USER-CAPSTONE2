@@ -38,6 +38,18 @@ const routes: Routes = [
     path: 'petinfo',
     loadChildren: () => import('./pages/petinfo/petinfo.module').then( m => m.PetinfoPageModule)
   },
+  {
+    path: 'vaccination',
+    loadChildren: () => import('./pages/vaccination/vaccination.module').then( m => m.VaccinationPageModule)
+  },
+  {
+    path: 'deworming',
+    loadChildren: () => import('./pages/deworming/deworming.module').then( m => m.DewormingPageModule)
+  },
+  {
+    path: 'heartworm',
+    loadChildren: () => import('./pages/heartworm/heartworm.module').then( m => m.HeartwormPageModule)
+  },
 
 
 ];

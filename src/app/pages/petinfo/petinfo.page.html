@@ -18,7 +18,11 @@
     <ion-button class="upload">Upload Profile Picture</ion-button>
   </div>
 
-  <ion-card>
+  <ion-card class="pet-details">
+    <ion-card-header>
+      <ion-card-subtitle>Pet Details</ion-card-subtitle>
+    </ion-card-header>
+
     <ion-item lines="full">
       <ion-label>
         <h2>Name</h2>
@@ -53,5 +57,20 @@
         <p>Male</p>
       </ion-label>
     </ion-item>
+  </ion-card>
+
+  <ion-card class="history">
+    <ion-card-header>
+      <ion-card-subtitle>Health History</ion-card-subtitle>
+    </ion-card-header>
+      <ion-item button detail="true" [routerLink]="['/vaccination']" lines="none" color="light">
+        <ion-label>Vaccination</ion-label>
+      </ion-item>
+      <ion-item button detail="true" [routerLink]="['/deworming']" lines="none" color="light">
+        <ion-label>Deworming</ion-label>
+      </ion-item>
+      <ion-item button detail="true" [routerLink]="['/heartworm']" lines="none" color="light">
+        <ion-label>Heart Worm Prevention</ion-label>
+      </ion-item>
   </ion-card>
 </ion-content>
