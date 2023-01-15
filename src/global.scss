@@ -86,13 +86,13 @@ ion-card {
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             margin: 5px;
     
-            h2 {
+            h3 {
                 font-family: 'Times New Roman', Times, serif;
             }
     
-            p {
+            ion-input {
                 font-family: 'Times New Roman', Times, serif;
-                font-size: 14px;
+                font-size: 16px;
             }
         }
         
