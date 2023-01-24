@@ -8,3 +8,23 @@ ion-toolbar {
         font-size: small;
     }
 }
+
+.type-col{
+    ion-row{
+        margin-left: 1.3rem;
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+}
+
+.time-date{
+    background: #F4F4F4;
+    border-radius: 10px;
+    height: 35px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
