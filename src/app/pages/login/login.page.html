@@ -15,16 +15,16 @@
   <div class="center">
     <ion-card-content>
       <ion-item lines="none">
-        <ion-input placeholder="Email" type="email" color="medium"></ion-input>
+        <ion-input placeholder="Email" type="email" color="medium" [(ngModel)]="email" name="email" ></ion-input>
       </ion-item>
   
       <ion-item lines="none">
-        <ion-input placeholder="Password" type="password" color="medium" required></ion-input>
+        <ion-input placeholder="Password" type="password" color="medium" [(ngModel)]="password" name="password" required></ion-input>
       </ion-item>
 
       <ion-row>
         <ion-col>
-          <span class="divider line"><ion-button [routerLink]="['/userprofile']" type="submit" class="login-btn">Login</ion-button></span>
+          <span class="divider line"><ion-button type="submit" class="login-btn" (click)="login()">Login</ion-button></span>
           <span class="forgot"><a [routerLink]="['/forgotpw']" class="small-text">Forgot Password?</a></span>
         </ion-col>
       </ion-row>
