@@ -12,7 +12,10 @@ export class PostService {
   postData(url:any,data:any){
     return this.http.post(this._url + url , data);
   }
-  getData(url:any,data:any){
-    return this.http.post(this._url + url , data);
+  postDataID(url:any,data:any,id:any){
+    return this.http.post(this._url + url + '/' + id, data);
+  }
+  postNull(url:any,id:any){
+    return this.http.post(this._url + url + '/' + id,null);
   }
 }

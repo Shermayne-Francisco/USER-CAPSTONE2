@@ -34,20 +34,21 @@ const routes: Routes = [
   {
     path: 'editprofile',
     loadChildren: () => import('./pages/editprofile/editprofile.module').then( m => m.EditprofilePageModule)
-  },  {
-    path: 'petinfo',
+  },
+  {
+    path: 'petinfo/:id',
     loadChildren: () => import('./pages/petinfo/petinfo.module').then( m => m.PetinfoPageModule)
   },
   {
-    path: 'vaccination',
+    path: 'vaccination/:id',
     loadChildren: () => import('./pages/vaccination/vaccination.module').then( m => m.VaccinationPageModule)
   },
   {
-    path: 'deworming',
+    path: 'deworming/:id',
     loadChildren: () => import('./pages/deworming/deworming.module').then( m => m.DewormingPageModule)
   },
   {
-    path: 'heartworm',
+    path: 'heartworm/:id',
     loadChildren: () => import('./pages/heartworm/heartworm.module').then( m => m.HeartwormPageModule)
   },
 

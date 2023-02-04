@@ -8,12 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <div style="text-align:center;" *ngIf="pets == null">
+    <h5>No history found!</h5>
+  </div>
+  <ion-card *ngFor="let pet of pets">
     <div class="type-col">
       <ion-grid>
         <ion-row>
           <ion-col>Name</ion-col>
-          <ion-col>Weight</ion-col>
+          <ion-col>Status</ion-col>
           <ion-col>Date</ion-col>
         </ion-row>
       </ion-grid>
@@ -22,9 +25,9 @@
     <div class="time-date">
       <ion-grid>
         <ion-row>
-          <ion-col>Nobivac</ion-col>
-          <ion-col size="auto">6.3kg</ion-col>
-          <ion-col size="auto">29 Aug 2022</ion-col>
+          <ion-col>{{pet.pet_name}}</ion-col>
+          <ion-col size="auto">{{pet.status}}</ion-col>
+          <ion-col size="auto">{{pet.app_date}}</ion-col>
         </ion-row>
       </ion-grid>
     </div>
