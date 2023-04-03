@@ -31,7 +31,7 @@
     </ion-segment-button>
   </ion-segment>
   
-
+  <!-- USER INFO  -->
   <div class="user-info" [ngSwitch]="account">
 
     <ion-card *ngSwitchCase="'details'">
@@ -57,6 +57,7 @@
       </ion-item>
     </ion-card>
 
+    <!-- EXISTING PETS PROFILE-->
     <ion-card *ngSwitchCase="'pets'">
       <div class="pet-info">
         <ion-list *ngFor="let pet of pets">
@@ -69,6 +70,7 @@
         </ion-list> 
       </div>
 
+      <!-- ADDING NEW PETS -->
       <div class="add-btn">
         <ion-button id="open-modal" expand="block">
           <ion-icon slot="start" name="add"></ion-icon>
@@ -122,10 +124,10 @@
       </div>
     </ion-card>
 
+    <!-- ADDING AND OVERSEE SCHED -->
     <div class="appointment" *ngSwitchCase="'schedule'" >
         <ion-card>
           <ion-item lines="none">
-            <ion-checkbox slot="start"></ion-checkbox>
             <ion-label>Deworming - Akio <br> 11 Sep 2022</ion-label>
           </ion-item>
         </ion-card>
