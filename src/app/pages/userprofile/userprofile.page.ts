@@ -72,10 +72,10 @@ export class UserprofilePage implements OnInit{
     let data = {
       user_id: this.id,
       pet_name:	this.Name,
-      pet_cm	:this.cm,
-      pet_breed	:this.breed,
-      birthdate:	this.dateValue.slice(0,10),
-      gender	: this.gender,
+      pet_cm: this.cm,
+      pet_breed: this.breed,
+      birthdate: this.dateValue.slice(0,10),
+      gender: this.gender,
     }
    
     console.log(data);

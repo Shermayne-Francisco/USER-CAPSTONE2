@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Sign Up</ion-title>
+    <ion-title class="title">Sign Up</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,78 +19,43 @@
       </ion-card-header>
   
       <ion-item lines="none">
-        <ion-input [(ngModel)]="fName" name="fName" placeholder="First Name" type="text" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="fName" name="fName" placeholder="First Name" type="text" color="dark" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="lName" name="lName" placeholder="Last Name" type="text" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="lName" name="lName" placeholder="Last Name" type="text" color="dark" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="Email" name="Email" placeholder="Email" type="email" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="Email" name="Email" placeholder="Email" type="email" color="dark" required></ion-input>
       </ion-item>       
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="Contact" name="Contact" placeholder="Contact Number" type="number" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="Contact" name="Contact" placeholder="Contact Number" type="number" color="dark" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="Address" name="Address" placeholder="Address" type="text" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="Address" name="Address" placeholder="Address" type="text" color="dark" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="Password" name="Password" placeholder="Password" type="password" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="Password" name="Password" placeholder="Password" type="password" color="dark" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-input [(ngModel)]="Confirm" name="Confirm" placeholder="Confirm Password" type="password" color="medium" required></ion-input>
+        <ion-input [(ngModel)]="Confirm" name="Confirm" placeholder="Confirm Password" type="password" color="dark" required></ion-input>
       </ion-item>
-      <ion-label *ngIf="Password != Confirm" >Password does not match</ion-label>
+      
+      <ion-card-content class="ion-text-center">
+        <ion-label *ngIf="Password != Confirm" >Password does not match</ion-label>
+      </ion-card-content>
     </ion-card>   
   </div>
 
-  <div class="details">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>PET'S INFORMATION</ion-card-subtitle>
-      </ion-card-header>
-      
-      <ion-item lines="none" >
-        <ion-input placeholder="Name" type="text" color="medium" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none" >
-        <ion-input placeholder="Color/Markings" type="text" color="medium" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none" >
-        <ion-input placeholder="Breed" type="text" color="medium" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label>Birthdate</ion-label>
-        <ion-input color="medium" value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
-          <ion-popover trigger="date" size="auto" side="top" alignment="center">
-            <ng-template>
-              <ion-datetime presentation="date" [(ngModel)]="date"></ion-datetime>
-            </ng-template>
-         </ion-popover>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label required>Gender</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="Female">Female</ion-select-option>
-          <ion-select-option value="Male">Male</ion-select-option>            
-        </ion-select>
-      </ion-item>
-    </ion-card>
-
-    <ion-row>
-      <ion-col>
-        <span class="divider line"><ion-button (click)="registerUser()" type="submit" class="signup-btn">Sign Up</ion-button></span>
-      </ion-col>
-    </ion-row>
-  </div>
+  <ion-row>
+    <ion-col>
+      <span class="divider line"><ion-button (click)="registerUser()" type="submit" class="signup-btn">Sign Up</ion-button></span>
+    </ion-col>
+  </ion-row>
   
 </ion-content>

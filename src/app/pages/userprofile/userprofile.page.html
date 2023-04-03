@@ -7,7 +7,7 @@
 
 <ion-content>
   <div class="flex-center">
-    <img src="./assets/icon/avatar.png" width="80%"/>
+    <img src="./assets/icon/avatar.png" width="50%"/>
   </div>
 
   <div class="user-profile ion-text-center">
@@ -33,6 +33,7 @@
   
 
   <div class="user-info" [ngSwitch]="account">
+
     <ion-card *ngSwitchCase="'details'">
       <ion-item lines="full">
         <ion-label>
@@ -122,14 +123,12 @@
     </ion-card>
 
     <div class="appointment" *ngSwitchCase="'schedule'" >
-        <ion-card >
+        <ion-card>
           <ion-item lines="none">
             <ion-checkbox slot="start"></ion-checkbox>
             <ion-label>Deworming - Akio <br> 11 Sep 2022</ion-label>
           </ion-item>
         </ion-card>
-
-       
     </div>
 
   </div>

@@ -47,6 +47,19 @@ ion-card {
     background-color: #F3E3CD;
 }
 
+.toolbar {
+    --background: #F3E3CD;
+    --min-height: 5px;
+    --padding-top: 10px;
+    --padding-bottom: 5px;
+    
+    .title {
+        font-size: small;
+        color: #000000;
+    }
+}
+
+
 .petinfo {
     --min-height: 5px;
     --padding-top: 10px;

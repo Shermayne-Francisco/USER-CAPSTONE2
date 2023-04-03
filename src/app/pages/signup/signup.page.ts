@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit{
-  private dateValue: any;
+  // private dateValue: any;
 
   fName: any;
   mName: any;
@@ -26,13 +26,13 @@ export class SignupPage implements OnInit{
    
   }
 
-  get date(): any {
-    return this.dateValue;
-  }
-  set date(value: any) {
-    console.log({ value });
-    this.dateValue = value;
-  }
+  // get date(): any {
+  //   return this.dateValue;
+  // }
+  // set date(value: any) {
+  //   console.log({ value });
+  //   this.dateValue = value;
+  // }
 
   registerUser()
   {

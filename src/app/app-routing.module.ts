@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'heartworm/:id',
     loadChildren: () => import('./pages/heartworm/heartworm.module').then( m => m.HeartwormPageModule)
+  },  {
+    path: 'changepassword',
+    loadChildren: () => import('./pages/changepassword/changepassword.module').then( m => m.ChangepasswordPageModule)
   },
+
 
 
 ];
