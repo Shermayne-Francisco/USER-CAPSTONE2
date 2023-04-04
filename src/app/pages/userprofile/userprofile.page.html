@@ -125,13 +125,23 @@
     </ion-card>
 
     <!-- ADDING AND OVERSEE SCHED -->
-    <div class="appointment" *ngSwitchCase="'schedule'" >
-        <ion-card>
-          <ion-item lines="none">
-            <ion-label>Deworming - Akio <br> 11 Sep 2022</ion-label>
-          </ion-item>
-        </ion-card>
-    </div>
+    
+      <div class="add-sched" *ngSwitchCase="'schedule'">
+        <ion-button id="open-modal" expand="block">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Set an Appointment
+        </ion-button>
+      </div>
+
+    <ion-card *ngSwitchCase="'schedule'">
+      <div class="appointment"  >
+          <ion-card>
+            <ion-item lines="none">
+              <ion-label>Deworming - Akio <br> 11 Sep 2022</ion-label>
+            </ion-item>
+          </ion-card>
+      </div>
+    </ion-card>
 
   </div>
 </ion-content>
