@@ -172,23 +172,39 @@
                   <ion-input placeholder="Pomeranian, Silkie, Sphynx, etc.." type="text" name="breed" color="dark" required></ion-input>
                 </ion-item>
 
-                <ion-accordion-group>
+                <ion-accordion-group class="date">
+                  <ion-accordion >
+                    <ion-item slot="header">
+                      <ion-label>Date</ion-label>
+                      <ion-note slot="end" id="datetimeValue"></ion-note>
+                    </ion-item>
+                    <ion-datetime
+                      id="datetime"
+                      slot="content"
+                      presentation="date"
+                      min="2000-12-01"
+                      value="1994-12-15T13:47:20.789"
+                    ></ion-datetime>
+                  </ion-accordion>
+                </ion-accordion-group>
+
+                <!-- <ion-accordion-group>
                   <ion-accordion value="start">
                     <ion-item slot="header">
                       <ion-label>Pick a date:</ion-label>
-                      <ion-note slot="end" id="datetimeValue"></ion-note>
+                      <ion-note slot="end"></ion-note>
                     </ion-item>
-                    <!-- <div class="date" slot="content"> -->
+                    <div class="date" slot="content">
                       <ion-datetime
                         id="datetime"
                         slot="content"
-                        display-format="MMMM YY"
+                        presentation="date"
                         min="2000-12-01"
                         value="1994-12-15T13:47:20.789"
                       ></ion-datetime>
-                    <!-- </div> -->
+                    </div>
                   </ion-accordion>
-                </ion-accordion-group>
+                </ion-accordion-group> -->
               </ion-list>
             </ion-content>
           </ng-template>

@@ -266,11 +266,18 @@ ion-list {
     }
 }
 
-ion-accordion-group {
+// DATE
+.date {
     ion-accordion {
         background: transparent;
         --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        font-size: 10px;
     } 
+
+    ion-note {
+        font-size: 8px;
+        font-family: 'Times New Roman', Times, serif;
+    }
 }
     
 // SCHEDULE
