@@ -10,6 +10,18 @@ import { SessionService } from 'src/app/services/session.service';
   styleUrls: ['userprofile.page.scss'],
 })
 export class UserprofilePage implements OnInit{
+  modal: any;
+
+  // MODAL FOR SCHEDULE FORM
+  cancel() {
+    this.modal.dismiss('cancel');
+  }
+
+  confirm() {
+    this.modal.dismiss('confirm');
+  }
+  // END OF MODAL FOR SCHEDULE FORM 
+
   private dateValue: any;
 
   account = 'details';  
@@ -30,7 +42,7 @@ export class UserprofilePage implements OnInit{
   cm:any;
   breed:any;
   gender:any;
-  constructor(private alertController: AlertController,private session: SessionService,public post:PostService,private route: Router) 
+  constructor(private alertController: AlertController, private session: SessionService, public post:PostService, private route: Router) 
   {
    
    }
@@ -41,17 +53,17 @@ export class UserprofilePage implements OnInit{
   get date(): any {
     return this.dateValue;
   }
+
   set date(value: any) {
     console.log({ value });
     this.dateValue = value;
   }
 
-  editProfle(){
+  editProfle() {
     this.route.navigate(['/editprofile']);
   }
 
-  getPet(){
-   
+  getPet() {
     this.post.postNull('getuserpet',this.id)
     .subscribe((response:any)=>{
     
@@ -64,11 +76,11 @@ export class UserprofilePage implements OnInit{
     });
   }
 
-  getPetInfo(id:any){
+  getPetInfo(id:any) {
     this.route.navigate(['/petinfo/'+id]);
   }
 
-  addPet(){
+  addPet() {
     let data = {
       user_id: this.id,
       pet_name:	this.Name,
@@ -92,19 +104,17 @@ export class UserprofilePage implements OnInit{
     });
   }
 
-
   async Success() {
     const alert = await this.alertController.create({
       header: 'Success',
-      message: 'Pet Added.',
+      message: 'Pet Added!',
       buttons: ['OK'],
     });
 
     await alert.present();
   }
 
-  logout()
-  {
+  logout() {
     this.session.deleteData();
     this.route.navigate(['/home']);
   }

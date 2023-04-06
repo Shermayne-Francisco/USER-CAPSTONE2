@@ -43,7 +43,7 @@ ion-toolbar {
     }
 }
 
-//  USER INFO, PET INFO, SCHED INFO
+//  PROFILE, PETS, SCHEDULE
 ion-segment {
     --background: #F3E3CD;
     margin-bottom: 10px;
@@ -85,15 +85,26 @@ ion-segment {
 ion-list {
     --ion-item-background: transparent;
 
-    ion-item {
-        margin: 10px;
+    ion-item.md {
+        margin: 1px;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         border-radius: 10px;
-      }
+    }
+
+    ion-item.ios {
+        margin: 6px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border-radius: 10px;
+    }
 
     ion-item:hover {
         opacity: 95%;
         box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    }
+
+    ion-avatar {
+        width: 35px;
+        height: 35px;
     }
 
     ion-label {
@@ -108,58 +119,59 @@ ion-list {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    --cursor: pointer;
     margin: 15px 0px 10px;
-}
-  
-ion-button {
-    --background: #BF622A;
-    --background-hover: #eb752c;
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    --border-radius: 15px;
-    --color: #F4F4F4;
-}
-  
-ion-button:hover {
-    opacity: 80%;
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    --color: #000000;
-}
 
-ion-modal.ios {
-    --height: 60%;
-    --width: 95%;
-    --border-radius: 15px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-
-ion-modal.md {
-    --height: 65%;
-    --width: 95%;
-    --border-radius: 15px;
-    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-
-    h6 {
-        margin-left: 10px;
+    ion-button {
+        --background: #BF622A;
+        --background-hover: #eb752c;
+        --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+        --border-radius: 15px;
+        --color: #F4F4F4;
+    }
+      
+    ion-button:hover {
+        opacity: 80%;
+        --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+        --color: #000000;
     }
 }
 
-ion-modal::part(backdrop) {
-    background: rgba(209, 213, 219);
-    opacity: 3;
-}
+.modal-pet {
+    ion-modal.ios {
+        --height: 60%;
+        --width: 95%;
+        --border-radius: 15px;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    
+    ion-modal.md {
+        --height: 65%;
+        --width: 95%;
+        --border-radius: 15px;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+        h6 {
+            margin-left: 10px;
+        }
+    }
 
-ion-modal ion-toolbar {
+    ion-toolbar {
     --background: #BF622A;
     --color: #F3E3CD;
+    }
 
     ion-button {
         --background: #F3E3CD;
         --color: #000000;
     }
-}
 
-// FORM FOR PET'S DETAILS
+    ion-modal::part(backdrop) {
+        --background: rgba(209, 213, 219);
+        opacity: 3;
+    }
+}  
+
 .addpet-info {
     ion-item {
         ion-input {
@@ -175,34 +187,128 @@ ion-modal ion-toolbar {
     }
 }
 
-// OVERSEE SCHEDULE
-//setting an appointment
-.add-sched {
+// SETTING AN APPOINTMENT
+.addsched-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    margin: 8px 0px 5px;
-}
-  
-ion-button {
-    --background: #BF622A;
-    --background-hover: #eb752c;
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    --border-radius: 12px;
-    --color: #F4F4F4;
-}
-  
-ion-button:hover {
-    opacity: 80%;
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    --color: #000000;
-}
+    --cursor: pointer;
+    margin: 15px 0px 10px;
 
-// appointment history
-.appointment {
-    ion-label {
+    ion-button {
+        --background: #BF622A;
+        --background-hover: #eb752c;
+        --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+        --border-radius: 15px;
+        --color: #F4F4F4;
         font-size: 12px;
-        color: rgb(121, 121, 121);
+    }
+      
+    ion-button:hover {
+        opacity: 80%;
+        --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+        --color: #000000;
     }
 }
+
+.modal-sched {
+    ion-modal.ios {
+        --height: 60%;
+        --width: 95%;
+        --border-radius: 15px;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    
+    ion-modal.md {
+        --height: 65%;
+        --width: 95%;
+        --border-radius: 15px;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    ion-toolbar {
+        --background: #BF622A;
+        --color: #F3E3CD;
+    }
+
+    ion-button {
+        --color: #F3E3CD;
+    }
+
+    ion-button:hover {
+        --color: #000000;
+    }
+}
+
+.sched-form {
+    ion-item.md {
+        margin: 10px;
+    }
+
+    ion-item {
+        margin: 20px;
+
+        ion-input {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 15px;
+        }
+
+        ion-label {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 14px;
+            color: rgb(121, 121, 121);
+        }
+
+        ion-select {
+            font-size: 14px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    }
+}
+
+ion-accordion-group {
+    ion-accordion {
+        background: transparent;
+        --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    } 
+}
+    
+// SCHEDULE
+.appointment {
+    background: transparent;
+
+    ion-list {
+        --background-color: #ffffff;
+    }
+    
+    ion-item.md {
+        margin: 1px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border-radius: 10px;
+    }
+
+    ion-item.ios {
+        margin: 6px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border-radius: 10px;
+    }
+
+    ion-item:hover {
+        opacity: 95%;
+        box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    }
+    
+    ion-label {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(121, 121, 121);
+        margin-left: -10px;
+    }
+
+    ion-icon {
+        font-size: 18px;
+        margin-right: 2px;
+    }
+}
+
+// ooi@gmail.com
