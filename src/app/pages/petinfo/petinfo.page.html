@@ -33,7 +33,7 @@
     <ion-item lines="full">
       <ion-label>
         <h3>Color/Markings</h3>
-        <ion-input  [disabled]="true">{{pet.cm}}</ion-input>
+        <ion-input  [disabled]="true">{{pet.pet_cm}}</ion-input>
       </ion-label>
     </ion-item>
 
@@ -47,7 +47,7 @@
     <ion-item lines="full">
       <ion-label>
         <h3>Birthdate</h3>
-        <ion-input  [disabled]="true">{{pet.birthdate}}</ion-input>
+        <ion-input  [disabled]="true">{{pet.birthdate | date: 'dd-MMM-YYYY' }}</ion-input>
       </ion-label>
     </ion-item>
 

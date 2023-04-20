@@ -20,6 +20,7 @@ export class PetinfoPage implements OnInit {
   ngOnInit(): void {
     this.getPetInfo();
   }
+
   async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Delete this pet profile?',
@@ -32,6 +33,9 @@ export class PetinfoPage implements OnInit {
         {
           text: 'Yes',
           cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.deletePet();
+          }
         },
       ],
     });
@@ -41,10 +45,23 @@ export class PetinfoPage implements OnInit {
 
   getPetInfo()
   {
-    this.post.postNull('getpet',this.id)
+    this.post.postNull('getpetinfo',this.id)
     .subscribe((response:any)=>{
       this.pets = response.payload;
+      console.log(this.pets);
+      
     });
+  }
+
+  deletePet(){
+    this.post.postNull('deletePet',this.id)
+      .subscribe((response:any)=>{
+        
+        this.route.navigate(['userprofile']);
+      
+      },(error)=>{
+        console.log("error");
+      });
   }
 
   history(type:any){

@@ -4,25 +4,16 @@ import { AlertController } from '@ionic/angular';
 import { PostService } from 'src/app/services/post.service';
 import { SessionService } from 'src/app/services/session.service';
 
+
 @Component({
   selector: 'app-userprofile',
   templateUrl: 'userprofile.page.html',
   styleUrls: ['userprofile.page.scss'],
 })
 export class UserprofilePage implements OnInit{
-  modal: any;
+  // modal: any;
 
-  // MODAL FOR SCHEDULE FORM
-  cancel() {
-    this.modal.dismiss('cancel');
-  }
-
-  confirm() {
-    this.modal.dismiss('confirm');
-  }
-  // END OF MODAL FOR SCHEDULE FORM 
-
-  private dateValue: any;
+  dateValue: any;
 
   account = 'details';  
   
@@ -36,18 +27,30 @@ export class UserprofilePage implements OnInit{
   email:any = JSON.parse(this.sessionData).email;
   id:any = JSON.parse(this.sessionData).id;
 
-  pets: any;
+  pets: any = [];
 
   Name:any;
   cm:any;
   breed:any;
   gender:any;
+
+  //add appointment data
+  pet_id:any;
+  app_type:any;
+  app_date:any;
+  appdate: any;
+  apptime: any;
+  appointmentData: any;
+
   constructor(private alertController: AlertController, private session: SessionService, public post:PostService, private route: Router) 
   {
-   
-   }
-  ngOnInit() {
-    this.getPet();
+    
+  }
+
+  ngOnInit() 
+  {
+       this.getPet();
+    this.getAppiontment();
   }
 
   get date(): any {
@@ -57,6 +60,8 @@ export class UserprofilePage implements OnInit{
   set date(value: any) {
     console.log({ value });
     this.dateValue = value;
+    this.appdate = this.dateValue.slice(0,10);
+    this.apptime = this.dateValue.slice(11,19);
   }
 
   editProfle() {
@@ -64,11 +69,13 @@ export class UserprofilePage implements OnInit{
   }
 
   getPet() {
-    this.post.postNull('getuserpet',this.id)
+   
+
+    this.post.postNull('getpet',this.id)
     .subscribe((response:any)=>{
     
       this.pets = response.payload;
-      
+
     },(error)=>{
      
       this.pets = null;
@@ -78,6 +85,46 @@ export class UserprofilePage implements OnInit{
 
   getPetInfo(id:any) {
     this.route.navigate(['/petinfo/'+id]);
+  }
+
+  addAppointment(){
+    let data = {
+      user_id : this.id,
+      pet_id : this.pet_id,
+      app_type : this.app_type,
+      status : "Pending",
+      app_time : this.apptime ,
+      app_date : this.appdate
+    }
+
+    this.post.postData('addAppointment',JSON.stringify(data))
+    .subscribe((response:any) => {
+      console.log();
+      
+      if(this.appointmentData == null){
+        this.appointmentData = response.payload[0];
+      }else{
+        this.appointmentData.push(data);
+
+      }
+      
+      this.SuccessAppointment();
+    },(error)=>{
+      console.log("error");
+
+    })
+  }
+
+  getAppiontment(){
+    
+    this.post.postNull('getAppointment',this.id)
+    .subscribe((response:any) => {
+      this.appointmentData = response.payload;
+    },(error)=>{
+        console.log("No Appointment !");
+        
+    });
+    
   }
 
   addPet() {
@@ -90,17 +137,21 @@ export class UserprofilePage implements OnInit{
       gender: this.gender,
     }
    
-    console.log(data);
-    
     this.post.postData('addpet',JSON.stringify(data))
     .subscribe((response:any)=>{
 
-      this.pets.push(response.payload[0]);
-      console.log(this.pets);
-      console.log(response);
+      if(this.pets == null){
+        this.pets = response.payload[0];
+      }else{
+        this.pets.push(response.payload[0]);
+
+      }
       
       this.Success();
 
+    },(error)=>{
+      console.log(error);
+      
     });
   }
 
@@ -112,6 +163,39 @@ export class UserprofilePage implements OnInit{
     });
 
     await alert.present();
+  }
+
+  async SuccessAppointment() {
+    const alert = await this.alertController.create({
+      header: 'Success',
+      message: 'Appointment Added!',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  async SuccessUpdate() {
+    const alert = await this.alertController.create({
+      header: 'Success',
+      message: 'Data updated!',
+      buttons: ['OK'],
+      
+    });
+    window.location.reload();
+    await alert.present();
+  }
+  update(status:any,id:any){
+    let data = {
+      status: status
+    };
+
+    this.post.postDataID('updateAppointment',JSON.stringify(data),id)
+    .subscribe((response:any)=>{
+
+      this.getPet();
+      this.SuccessUpdate();
+
+    });
   }
 
   logout() {

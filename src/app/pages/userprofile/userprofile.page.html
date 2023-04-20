@@ -105,14 +105,14 @@
                   <ion-input color="dark" value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
                     <ion-popover trigger="date" size="auto" side="top" alignment="center">
                       <ng-template>
-                        <ion-datetime presentation="date" [(ngModel)]="date"></ion-datetime>
+                        <ion-datetime color="warning" presentation="date" [(ngModel)]="date"></ion-datetime>
                       </ng-template>
                    </ion-popover>
                 </ion-item>
 
                 <ion-item lines="none">
                   <ion-label required>Gender</ion-label>
-                  <ion-select interface="popover" [(ngModel)]="gender" name="gender">
+                  <ion-select interface="popover" [(ngModel)]="gender" name="gender" >
                     <ion-select-option value="Female">Female</ion-select-option>
                     <ion-select-option value="Male">Male</ion-select-option>            
                   </ion-select>
@@ -138,10 +138,10 @@
               <ion-header>
                 <ion-toolbar>
                   <ion-buttons slot="start">
-                    <ion-button (click)="modal.dismiss()">Cancel</ion-button>
+                    <ion-button  (click)="modal.dismiss()">Cancel</ion-button>
                   </ion-buttons>
-                  <ion-buttons slot="end">
-                    <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+                  <ion-buttons slot="end"  (click)="modal.dismiss()">
+                    <ion-button (click)="addAppointment() ">Confirm</ion-button>
                   </ion-buttons>
                 </ion-toolbar>
               </ion-header>
@@ -149,7 +149,7 @@
               <ion-list class="sched-form">
                 <ion-item lines="none">
                   <ion-label position="stacked">Services:</ion-label>
-                  <ion-select placeholder="Options" required>
+                  <ion-select placeholder="Options" [(ngModel)]="app_type" name="app_type"  required>
                     <ion-select-option value="grooming">Grooming</ion-select-option>
                     <ion-select-option value="consultation">Consultation</ion-select-option>
                     <ion-select-option value="vaccination">Vaccination</ion-select-option>
@@ -158,53 +158,32 @@
                 </ion-item>
 
                 <ion-item lines="none">
-                  <ion-label position="stacked">Pet Name</ion-label>
-                  <ion-input placeholder="Enter pet name" type="text" name="name" color="dark" required></ion-input>
+                  <ion-label position="stacked">Pet</ion-label>
+                  <ion-select type="text" [(ngModel)]="pet_id" name="pet_id" color="dark" required>
+                    <ion-select-option value="{{pet.pet_id}}" *ngFor="let pet of pets"> {{pet.pet_name}} </ion-select-option>
+                  </ion-select>
                 </ion-item>
 
-                <ion-item lines="none">
-                  <ion-label position="stacked">Type of Pet</ion-label>
-                  <ion-input placeholder="Cat, Dog, Chicken, etc.." type="text" color="dark" required></ion-input>
-                </ion-item>
-
-                <ion-item lines="none">
-                  <ion-label position="stacked">Breed</ion-label>
-                  <ion-input placeholder="Pomeranian, Silkie, Sphynx, etc.." type="text" name="breed" color="dark" required></ion-input>
-                </ion-item>
-
-                <ion-accordion-group class="date">
-                  <ion-accordion >
-                    <ion-item slot="header">
-                      <ion-label>Date</ion-label>
-                      <ion-note slot="end" id="datetimeValue"></ion-note>
-                    </ion-item>
-                    <ion-datetime
-                      id="datetime"
-                      slot="content"
-                      presentation="date"
-                      min="2000-12-01"
-                      value="1994-12-15T13:47:20.789"
-                    ></ion-datetime>
-                  </ion-accordion>
-                </ion-accordion-group>
-
-                <!-- <ion-accordion-group>
+                <ion-accordion-group class="datetime">
                   <ion-accordion value="start">
                     <ion-item slot="header">
-                      <ion-label>Pick a date:</ion-label>
-                      <ion-note slot="end"></ion-note>
+                      <ion-label position="fixed">Pick a date:</ion-label>
+                      <ion-note slot="end" id="datetimeValue" > {{appdate}} - {{apptime}}</ion-note>
                     </ion-item>
+                    
                     <div class="date" slot="content">
-                      <ion-datetime
+                      <ion-datetime color="warning"
                         id="datetime"
                         slot="content"
-                        presentation="date"
-                        min="2000-12-01"
-                        value="1994-12-15T13:47:20.789"
+                        min="2010-12-01"
+                        display-format="MMM DD YYYY HH:mm"
+                        [(ngModel)]="date"
+                      
                       ></ion-datetime>
+
                     </div>
                   </ion-accordion>
-                </ion-accordion-group> -->
+                </ion-accordion-group>
               </ion-list>
             </ion-content>
           </ng-template>
@@ -214,16 +193,17 @@
       <!-- SCHEDULE -->
       <div class="appointment">
         <ion-list>
-          <ion-item lines="none">
-            <ion-label>Deworming - Akio <br> 11 Sep 2022 13:00</ion-label>
-              <ion-icon [routerLink]="['/editprofile']" name="checkmark-outline" slot="end" class="accept-btn"></ion-icon>
-              <ion-icon [routerLink]="['/editprofile']" name="close-outline" slot="end" class="cancel-btn"></ion-icon>
+          <ion-item lines="none" *ngFor="let data of appointmentData">
+            <ion-label>{{data.app_type}} - {{data.pet_name}} <br> {{data.app_date}} {{data.pet_time}}</ion-label>
+              <ion-item *ngIf="data.status == 'Pending'">
+                <ion-icon name="checkmark-outline" slot="end" class="accept-btn" (click)="update('Appointed',data.app_id)"></ion-icon>
+                <ion-icon name="close-outline" slot="end" class="cancel-btn" (click)="update('Cancel',data.app_id)"></ion-icon>
+              </ion-item>
+              <ion-item *ngIf="data.status != 'Pending'">
+                <ion-text slot="end" class="status">Status:<br>Pending</ion-text>
+              </ion-item>
           </ion-item>
 
-          <ion-item lines="none">
-            <ion-label>Deworming - Akio <br> 11 Sep 2022 13:00</ion-label>
-            <ion-text slot="end" class="status">Status:<br>Pending</ion-text>
-          </ion-item>
         </ion-list>
       </div>
     </ion-card>
