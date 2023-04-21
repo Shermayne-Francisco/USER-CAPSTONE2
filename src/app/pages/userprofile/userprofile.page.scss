@@ -172,6 +172,7 @@ ion-list {
     }
 }  
 
+// ADDING NEW PET FORM
 .addpet-info {
     ion-item.md {
         margin: 10px;
@@ -253,6 +254,7 @@ ion-list {
     }
 }
 
+// ADDING SCHED FORM
 .sched-form {
     ion-item.md {
         margin: 10px;
@@ -301,27 +303,37 @@ ion-list {
 }
 
     
-// SCHEDULE
+// SCHEDULE LIST
 .appointment {
-    background: transparent;
+    // ion-item {
+            background: transparent;
+        // }
     
-    ion-item.md {
-        margin: 10px;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        border-radius: 10px;
-        background-color: #F4F4F4;
+    .sched-status.md {
+        margin: 6px -3px;
+        // box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        border-radius: 5px;
+        background: transparent;
+
+        // STATUS
+    .status {
+        font-size: 12px;
+        margin-right: 2px;
+        margin-left: 8px;
+        color: #BF622A;
+    }
     }
 
-    ion-item.ios {
-        margin: 6px;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        border-radius: 10px;
-    }
+    // ion-item.ios {
+    //     margin: 6px;
+    //     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    //     border-radius: 10px;
+    // }
 
-    ion-item:hover {
-        opacity: 95%;
-        box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    }
+        // ion-item:hover {
+        //     opacity: 95%;
+        //     box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+        // }
     
     ion-label {
         font-size: 12px;
@@ -353,10 +365,3 @@ ion-list {
     color: #BF622A;
 }
 
-// STATUS
-.status {
-    font-size: 10px;
-    margin-right: 2px;
-    margin-left: 8px;
-    color: #BF622A;
-}

@@ -190,16 +190,16 @@
         </ion-modal>
       </div>
 
-      <!-- SCHEDULE -->
+      <!-- SCHEDULE LIST-->
       <div class="appointment">
         <ion-list>
           <ion-item lines="none" *ngFor="let data of appointmentData">
             <ion-label>{{data.app_type}} - {{data.pet_name}} <br> {{data.app_date}} {{data.pet_time}}</ion-label>
-              <ion-item *ngIf="data.status == 'Pending'">
+              <ion-item *ngIf="data.status == 'Pending'" class="schedule-btn">
                 <ion-icon name="checkmark-outline" slot="end" class="accept-btn" (click)="update('Appointed',data.app_id)"></ion-icon>
                 <ion-icon name="close-outline" slot="end" class="cancel-btn" (click)="update('Cancel',data.app_id)"></ion-icon>
               </ion-item>
-              <ion-item *ngIf="data.status != 'Pending'">
+              <ion-item *ngIf="data.status != 'Pending'" class="sched-status">
                 <ion-text slot="end" class="status">Status:<br>Pending</ion-text>
               </ion-item>
           </ion-item>
