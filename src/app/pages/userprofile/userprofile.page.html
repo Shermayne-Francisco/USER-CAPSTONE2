@@ -60,10 +60,10 @@
     <!-- EXISTING PETS PROFILE-->
     <ion-card *ngSwitchCase="'pets'">
       <div class="pet-info">
-        <ion-list *ngFor="let pet of pets">
-            <ion-item button detail="true" (click)="getPetInfo(pet.pet_id)" lines="none" color="light">
+        <ion-list class="existing-pet" *ngFor="let pet of pets">
+            <ion-item button detail="true" (click)="getPetInfo(pet.pet_id)" lines="none" color="light" class="pet-item">
               <ion-avatar>
-                <img class="petpic" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                <img src="https://ionicframework.com/docs/img/demos/avatar.svg" width="25px" />
               </ion-avatar>
               <ion-label>{{pet.pet_name}}</ion-label>
             </ion-item>
@@ -87,22 +87,23 @@
                 </ion-buttons>
               </ion-toolbar>
 
+              <!-- ADDING NEW PET FORM -->
               <ion-list class="addpet-info">
-                <ion-item lines="none" >
-                  <ion-input placeholder="Name" [(ngModel)]="Name" name="Name" type="text" color="dark" required></ion-input>
+                <ion-item class="petinfo-item" lines="none" >
+                  <ion-input placeholder="Name" [(ngModel)]="Name" name="Name" type="text" required></ion-input>
                 </ion-item>
           
-                <ion-item lines="none" >
-                  <ion-input placeholder="Color/Markings" [(ngModel)]="cm" name="cm" type="text" color="dark" required></ion-input>
+                <ion-item class="petinfo-item" lines="none" >
+                  <ion-input placeholder="Color/Markings" [(ngModel)]="cm" name="cm" type="text" required></ion-input>
                 </ion-item>
           
-                <ion-item lines="none" >
-                  <ion-input placeholder="Breed" type="text" [(ngModel)]="breed" name="breed" color="dark" required></ion-input>
+                <ion-item class="petinfo-item" lines="none" >
+                  <ion-input placeholder="Breed" type="text" [(ngModel)]="breed" name="breed" required></ion-input>
                 </ion-item>
                 
-                <ion-item lines="none">
+                <ion-item class="petinfo-item" lines="none">
                   <ion-label>Birthdate</ion-label>
-                  <ion-input color="dark" value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
+                  <ion-input value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
                     <ion-popover trigger="date" size="auto" side="top" alignment="center">
                       <ng-template>
                         <ion-datetime color="warning" presentation="date" [(ngModel)]="date"></ion-datetime>
@@ -110,7 +111,7 @@
                    </ion-popover>
                 </ion-item>
 
-                <ion-item lines="none">
+                <ion-item class="petinfo-item" lines="none">
                   <ion-label required>Gender</ion-label>
                   <ion-select interface="popover" [(ngModel)]="gender" name="gender" >
                     <ion-select-option value="Female">Female</ion-select-option>
@@ -146,10 +147,11 @@
                 </ion-toolbar>
               </ion-header>
 
+              <!-- ADDING SCHED FORM -->
               <ion-list class="sched-form">
-                <ion-item lines="none">
+                <ion-item class="schedform-item" lines="none">
                   <ion-label position="stacked">Services:</ion-label>
-                  <ion-select placeholder="Options" [(ngModel)]="app_type" name="app_type"  required>
+                  <ion-select placeholder="Options" [(ngModel)]="app_type" name="app_type" required>
                     <ion-select-option value="grooming">Grooming</ion-select-option>
                     <ion-select-option value="consultation">Consultation</ion-select-option>
                     <ion-select-option value="vaccination">Vaccination</ion-select-option>
@@ -157,9 +159,9 @@
                   </ion-select>
                 </ion-item>
 
-                <ion-item lines="none">
+                <ion-item class="schedform-item" lines="none">
                   <ion-label position="stacked">Pet</ion-label>
-                  <ion-select type="text" [(ngModel)]="pet_id" name="pet_id" color="dark" required>
+                  <ion-select type="text" [(ngModel)]="pet_id" name="pet_id" required>
                     <ion-select-option value="{{pet.pet_id}}" *ngFor="let pet of pets"> {{pet.pet_name}} </ion-select-option>
                   </ion-select>
                 </ion-item>
@@ -167,7 +169,7 @@
                 <ion-accordion-group class="datetime">
                   <ion-accordion value="start">
                     <ion-item slot="header">
-                      <ion-label position="fixed">Pick a date:</ion-label>
+                      <ion-label position="float">Pick a date:</ion-label>
                       <ion-note slot="end" id="datetimeValue" > {{appdate}} - {{apptime}}</ion-note>
                     </ion-item>
                     
@@ -178,9 +180,7 @@
                         min="2010-12-01"
                         display-format="MMM DD YYYY HH:mm"
                         [(ngModel)]="date"
-                      
                       ></ion-datetime>
-
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
@@ -192,21 +192,20 @@
 
       <!-- SCHEDULE LIST-->
       <div class="appointment">
-        <ion-list>
-          <ion-item lines="none" *ngFor="let data of appointmentData">
-            <ion-label>{{data.app_type}} - {{data.pet_name}} <br> {{data.app_date}} {{data.pet_time}}</ion-label>
-              <ion-item *ngIf="data.status == 'Pending'" class="schedule-btn">
+        <ion-list class="appointment-list">
+          <ion-item class="list-item" lines="none" *ngFor="let data of appointmentData">
+            <ion-label class="label-sched">{{data.app_type}} - {{data.pet_name}} <br> {{data.app_date}} {{data.app_time}}</ion-label>
+              <ion-item lines="none" *ngIf="data.status == 'Pending'" class="schedule-btn">
                 <ion-icon name="checkmark-outline" slot="end" class="accept-btn" (click)="update('Appointed',data.app_id)"></ion-icon>
                 <ion-icon name="close-outline" slot="end" class="cancel-btn" (click)="update('Cancel',data.app_id)"></ion-icon>
               </ion-item>
-              <ion-item *ngIf="data.status != 'Pending'" class="sched-status">
-                <ion-text slot="end" class="status">Status:<br>Pending</ion-text>
+              <ion-item lines="none" *ngIf="data.status != 'Pending'" class="sched-status">
+                <ion-text class="status">Status:<br>Pending</ion-text>
               </ion-item>
           </ion-item>
-
         </ion-list>
       </div>
     </ion-card>
-
   </div>
+
 </ion-content>
