@@ -3,15 +3,15 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="title">Deworming</ion-title>
+    <ion-title class="title">Other Treatments</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div style="text-align:center;" *ngIf="pets == null">
+  <div style="text-align:center;">
     <h5>No history found!</h5>
   </div>
-  <ion-card *ngFor="let pet of pets">
+  <ion-card>
     <div class="type-col">
       <ion-grid>
         <ion-row>
@@ -25,9 +25,9 @@
     <div class="time-date">
       <ion-grid>
         <ion-row>
-          <ion-col>{{pet.pet_name}}</ion-col>
-          <ion-col size="auto">{{pet.status}}</ion-col>
-          <ion-col size="auto">{{pet.app_date}}</ion-col>
+          <ion-col>Medicine Name</ion-col>
+          <ion-col>Pet Weight</ion-col>
+          <ion-col size="auto">Date</ion-col>
         </ion-row>
       </ion-grid>
     </div>
