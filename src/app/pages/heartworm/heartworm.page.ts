@@ -11,6 +11,7 @@ export class HeartwormPage implements OnInit {
 
   id = this.router.snapshot.paramMap.get('id');
   pets: any;
+  remarks: any;
 
   constructor(public post:PostService,private router: ActivatedRoute) 
   { }
@@ -22,13 +23,14 @@ export class HeartwormPage implements OnInit {
   getSched()
   {
     let data = {
-      type: 'Heartworm'
+      type: 'Heartworm' 
     }
-    this.post.postDataID('getPetAppointment',JSON.stringify(data),this.id)
+    this.post.postDataID('getPetinfos',JSON.stringify(data),this.id)
     .subscribe((response:any)=>{
-      console.log(response);
-      
+      console.log(response.status.remarks);
+      this.remarks = response.status.remarks;
       this.pets = response.payload;
+
     },()=>{
       this.pets = null;
     });

@@ -26,7 +26,7 @@ export class VaccinationPage implements OnInit {
     let data = {
       type: 'Vaccination'
     }
-    this.post.postDataID('getPetAppointment',JSON.stringify(data),this.id)
+    this.post.postDataID('getPetinfos',JSON.stringify(data),this.id)
     .subscribe((response:any)=>{
       console.log(response);
       

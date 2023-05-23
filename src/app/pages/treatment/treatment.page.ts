@@ -14,23 +14,24 @@ export class TreatmentPage implements OnInit {
   
   id = this.router.snapshot.paramMap.get('id');
   pets: any;
+  remarks: any;
 
   constructor(private alertController: AlertController,private session: SessionService,public post:PostService,private router: ActivatedRoute,private route: Router) 
   { }
 
   ngOnInit() {
-    this. getSched();
+    this.getSched();
   }
 
   getSched()
   {
     let data = {
-      type: 'Treatment'
-    }
-    this.post.postDataID('getPetAppointment',JSON.stringify(data),this.id)
-    .subscribe((response:any)=>{
-      console.log(response);
       
+    }
+    this.post.postDataID('getPetinfos',JSON.stringify(data),this.id)
+    .subscribe((response:any)=>{
+      console.log('getasdasd',response);
+      this.remarks = response.status.remarks;
       this.pets = response.payload;
     },()=>{
       this.pets = null;
