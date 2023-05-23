@@ -13,7 +13,12 @@ export class PetinfoPage implements OnInit {
   id = this.router.snapshot.paramMap.get('id');
   pets: any;
 
-  constructor(private alertController: AlertController,private session: SessionService,public post:PostService,private router: ActivatedRoute,private route: Router) 
+  constructor(
+    private alertController: AlertController,
+    private session: SessionService,
+    public post:PostService,
+    private router: ActivatedRoute,
+    private route: Router) 
   {
     
   }

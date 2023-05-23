@@ -49,8 +49,8 @@ export class UserprofilePage implements OnInit{
 
   ngOnInit() 
   {
-       this.getPet();
-    this.getAppiontment();
+    this.getPet();
+    this.getAppointment();
   }
 
   get date(): any {
@@ -115,7 +115,7 @@ export class UserprofilePage implements OnInit{
     })
   }
 
-  getAppiontment(){
+  getAppointment(){
     
     this.post.postNull('getAppointment',this.id)
     .subscribe((response:any) => {

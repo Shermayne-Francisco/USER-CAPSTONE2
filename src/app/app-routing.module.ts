@@ -52,7 +52,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/heartworm/heartworm.module').then( m => m.HeartwormPageModule)
   },
   {
-    path: 'treatment',
+    path: 'treatment/:id',
     loadChildren: () => import('./pages/treatment/treatment.module').then( m => m.TreatmentPageModule)
   },
   {

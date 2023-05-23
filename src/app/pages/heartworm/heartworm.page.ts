@@ -22,7 +22,7 @@ export class HeartwormPage implements OnInit {
   getSched()
   {
     let data = {
-      type: 'heartworm'
+      type: 'Heartworm'
     }
     this.post.postDataID('getPetAppointment',JSON.stringify(data),this.id)
     .subscribe((response:any)=>{
