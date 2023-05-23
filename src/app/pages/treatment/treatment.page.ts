@@ -26,7 +26,7 @@ export class TreatmentPage implements OnInit {
   getSched()
   {
     let data = {
-      
+      type: null
     }
     this.post.postDataID('getPetinfos',JSON.stringify(data),this.id)
     .subscribe((response:any)=>{
