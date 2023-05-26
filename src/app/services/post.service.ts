@@ -7,7 +7,9 @@ export class PostService {
 
   constructor(private http:HttpClient) { }
 
-  private _url = "http://localhost/PetHealth-API/";
+  private _url = "https://pet-health.mleystock-pile.com/";
+  //https://pet-health.mleystock-pile.com/
+  //http://localhost/PetHealth-API/
 
   postData(url:any,data:any){
     return this.http.post(this._url + url , data);
