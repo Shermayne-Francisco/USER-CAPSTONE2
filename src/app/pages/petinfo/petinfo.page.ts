@@ -12,6 +12,7 @@ export class PetinfoPage implements OnInit {
 
   id = this.router.snapshot.paramMap.get('id');
   pets: any;
+  petname: any;
 
   constructor(
     private alertController: AlertController,
@@ -54,6 +55,7 @@ export class PetinfoPage implements OnInit {
     .subscribe((response:any)=>{
       this.pets = response.payload;
       console.log(this.pets);
+      this.petname = this.pets[0].pet_name
       
     });
   }
@@ -71,5 +73,14 @@ export class PetinfoPage implements OnInit {
 
   history(type:any){
     this.route.navigate([type + this.id]);
+  }
+
+  updatePet(){
+    this.post.postData('updatePet',JSON.stringify({pet_id: this.id, pet_name: this.petname}))
+    .subscribe((response:any)=>{
+      
+      console.log(this.pets);
+      console.log(response);
+    });
   }
 }

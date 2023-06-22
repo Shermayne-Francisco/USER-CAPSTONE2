@@ -6,6 +6,9 @@
     <ion-button class="delete" size="small" slot="end" (click)="presentAlert()">
       <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
+    <ion-buttons slot="end">
+      <ion-icon class="save" name="checkmark-outline" (click)="updatePet()"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -26,35 +29,42 @@
     <ion-item lines="full">
       <ion-label>
         <h3>Name</h3>
-        <ion-input [disabled]="true">{{pet.pet_name}}</ion-input>
+        <ion-input value="{{pet.pet_name}}" [(ngModel)]="petname"></ion-input>
       </ion-label>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label>
         <h3>Color/Markings</h3>
-        <ion-input  [disabled]="true">{{pet.pet_cm}}</ion-input>
+        <ion-input [readonly]="true">{{pet.pet_cm}}</ion-input>
       </ion-label>
     </ion-item>
 
     <ion-item lines="full">
-      <ion-label >
+      <ion-label>
         <h3>Breed</h3>
-        <ion-input  [disabled]="true">{{pet.pet_breed}}</ion-input>
+        <ion-input [readonly]="true">{{pet.pet_breed}}</ion-input>
       </ion-label>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label>
         <h3>Birthdate</h3>
-        <ion-input  [disabled]="true">{{pet.birthdate | date: 'dd-MMM-YYYY' }}</ion-input>
+        <ion-input [readonly]="true">{{pet.birthdate | date: 'dd-MMM-YYYY' }}</ion-input>
       </ion-label>
     </ion-item>
 
     <ion-item lines="full">
       <ion-label>
         <h3>Gender</h3>
-        <ion-input  [disabled]="true">{{pet.gender}}</ion-input>
+        <ion-input [readonly]="true">{{pet.gender}}</ion-input>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>
+        <h3>Species</h3>
+        <ion-input [readonly]="true">{{pet.species}}</ion-input>
       </ion-label>
     </ion-item>
   </ion-card>

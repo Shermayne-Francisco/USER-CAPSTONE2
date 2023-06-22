@@ -72,6 +72,17 @@ ion-card {
     width: 20%;
 } 
 
+.save {
+    color: black;
+    font-size: 150%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.save:hover {
+    color: #BF622A;
+}
+
 .petinfo {
     --min-height: 5px;
     --padding-top: 10px;

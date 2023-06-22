@@ -90,30 +90,44 @@
               <!-- ADDING NEW PET FORM -->
               <ion-list class="addpet-info">
                 <ion-item class="petinfo-item" lines="none" >
-                  <ion-input placeholder="Name" [(ngModel)]="Name" name="Name" type="text" required></ion-input>
+                  <ion-label position="stacked" required>Pet Name</ion-label>
+                  <ion-input [(ngModel)]="Name" name="Name" type="text"></ion-input>
                 </ion-item>
           
                 <ion-item class="petinfo-item" lines="none" >
-                  <ion-input placeholder="Color/Markings" [(ngModel)]="cm" name="cm" type="text" required></ion-input>
+                  <ion-label position="stacked" required>Color/Markings</ion-label>
+                  <ion-input placeholder="e.g. Black, Brown, etc." [(ngModel)]="cm" name="cm" type="text"></ion-input>
                 </ion-item>
           
                 <ion-item class="petinfo-item" lines="none" >
-                  <ion-input placeholder="Breed" type="text" [(ngModel)]="breed" name="breed" required></ion-input>
+                  <ion-label position="stacked" required>Breed</ion-label>
+                  <ion-input placeholder="e.g. Beagle, Persian, etc." type="text" [(ngModel)]="breed" name="breed"></ion-input>
                 </ion-item>
-                
+
+                <ion-item class="petinfo-item" lines="none" >
+                  <ion-label position="stacked" required>Species</ion-label>
+                  <ion-select name="species" [(ngModel)]="species">
+                    <ion-select-option value="Canine">Canine</ion-select-option>
+                    <ion-select-option value="Feline">Feline</ion-select-option>
+                    <ion-select-option value="Birds">Birds</ion-select-option>
+                    <ion-select-option value="Mammals">Small Mammals</ion-select-option>
+                    <ion-select-option value="Others">Others</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
                 <ion-item class="petinfo-item" lines="none">
-                  <ion-label>Birthdate</ion-label>
+                  <ion-label position="stacked" required>Birthdate</ion-label>
                   <ion-input value="{{ date | date: 'dd-MMM-YYYY' }}" id="date" class="ion-text-end"></ion-input>
                     <ion-popover trigger="date" size="auto" side="top" alignment="center">
                       <ng-template>
-                        <ion-datetime color="warning" presentation="date" [(ngModel)]="date"></ion-datetime>
+                        <ion-datetime color="warning" presentation="date" min="2000-12-31" max="2023-06-22" [(ngModel)]="date"></ion-datetime>
                       </ng-template>
                    </ion-popover>
                 </ion-item>
 
                 <ion-item class="petinfo-item" lines="none">
-                  <ion-label required>Gender</ion-label>
-                  <ion-select interface="popover" [(ngModel)]="gender" name="gender" >
+                  <ion-label position="stacked" required>Gender</ion-label>
+                  <ion-select [(ngModel)]="gender" name="gender" >
                     <ion-select-option value="Female">Female</ion-select-option>
                     <ion-select-option value="Male">Male</ion-select-option>            
                   </ion-select>
@@ -151,12 +165,13 @@
               <ion-list class="sched-form">
                 <ion-item class="schedform-item" lines="none">
                   <ion-label position="stacked">Services:</ion-label>
-                  <ion-select placeholder="Options" [(ngModel)]="app_type" name="app_type" required>
+                  <ion-select placeholder="Options" [(ngModel)]="app_type" name="app_type" [multiple]="true" required>
                     <ion-select-option value="grooming">Grooming</ion-select-option>
                     <ion-select-option value="vaccination">Vaccination</ion-select-option>
                     <ion-select-option value="deworming">Deworming</ion-select-option>
-                    <ion-select-option value="deworming">Heartworm Prevention</ion-select-option>
-                    <ion-select-option value="deworming">Other Treatment</ion-select-option>
+                    <ion-select-option value="heartworm">Heartworm Prevention</ion-select-option>
+                    <ion-select-option value="consultation">Consultation</ion-select-option>
+                    <ion-select-option value="other">Other Treatment</ion-select-option>
                   </ion-select>
                 </ion-item>
 
@@ -178,7 +193,7 @@
                       <ion-datetime color="warning"
                         id="datetime"
                         slot="content"
-                        min="2010-12-01"
+                        min="2023-06-20"
                         display-format="MMM DD YYYY HH:mm"
                         [(ngModel)]="date"
                       ></ion-datetime>
@@ -195,7 +210,7 @@
       <div class="appointment">
         <ion-list class="appointment-list">
           <ion-item class="list-item" lines="none" *ngFor="let data of appointmentData">
-            <ion-label class="label-sched">{{data.app_type}} - {{data.pet_name}} <br> {{data.app_date}} {{data.app_time}}</ion-label>
+            <ion-label class="label-sched">{{getFormattedArray(data.app_type) | titlecase}} - {{data.pet_name}} <br> {{data.app_date}} {{data.app_time}}</ion-label>
               <ion-item lines="none" *ngIf="data.status == 'Pending'" class="schedule-btn">
                 <ion-icon name="checkmark-outline" slot="end" class="accept-btn" (click)="update('Appointed',data.app_id)"></ion-icon>
                 <ion-icon name="close-outline" slot="end" class="cancel-btn" (click)="update('Cancel',data.app_id)"></ion-icon>

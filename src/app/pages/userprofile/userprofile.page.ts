@@ -33,6 +33,7 @@ export class UserprofilePage implements OnInit{
   cm:any;
   breed:any;
   gender:any;
+  species: any;
 
   //add appointment data
   pet_id:any;
@@ -41,7 +42,7 @@ export class UserprofilePage implements OnInit{
   appdate: any;
   apptime: any;
   appointmentData: any;
-
+  
   constructor(private alertController: AlertController, private session: SessionService, public post:PostService, private route: Router) 
   {
     
@@ -91,7 +92,7 @@ export class UserprofilePage implements OnInit{
     let data = {
       user_id : this.id,
       pet_id : this.pet_id,
-      app_type : this.app_type,
+      app_type : JSON.stringify(this.app_type),
       status : "Pending",
       app_time : this.apptime ,
       app_date : this.appdate
@@ -121,7 +122,7 @@ export class UserprofilePage implements OnInit{
     .subscribe((response:any) => {
       this.appointmentData = response.payload;
     },(error)=>{
-        console.log("No Appointment !");
+        console.log("No Appointment!");
         
     });
     
@@ -135,6 +136,7 @@ export class UserprofilePage implements OnInit{
       pet_breed: this.breed,
       birthdate: this.dateValue.slice(0,10),
       gender: this.gender,
+      species: this.species
     }
    
     this.post.postData('addpet',JSON.stringify(data))
@@ -201,5 +203,9 @@ export class UserprofilePage implements OnInit{
   logout() {
     this.session.deleteData();
     this.route.navigate(['/home']);
+  }
+
+  getFormattedArray(types: string) {
+    return JSON.parse(types).join(', ');
   }
 }
